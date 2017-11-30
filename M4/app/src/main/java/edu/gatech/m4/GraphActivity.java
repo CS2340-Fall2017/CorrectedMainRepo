@@ -19,12 +19,8 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class GraphActivity extends AppCompatActivity {
-    private final Map<String, Integer> graphHelper = new TreeMap<>();
-    private final List<BarEntry> entries = new ArrayList<>();
-
-
-
-
+    private static final Map<String, Integer> graphHelper = new TreeMap<>();
+    private List<BarEntry> entries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,22 +53,7 @@ public class GraphActivity extends AppCompatActivity {
         }
 
         Set<String> keys = graphHelper.keySet();
-        float count = 0;
-        for (String key : keys) {
-            float floatKey = (float) graphHelper.get(key);
-            entries.add(new BarEntry(count, (float)graphHelper.get(key)));
-            count++;
-        }
-
-//        entries.add(new BarEntry(0f, 30f));
-//        entries.add(new BarEntry(1f, 80f));
-//        entries.add(new BarEntry(2f, 60f));
-//        entries.add(new BarEntry(3f, 50f));
-//        // gap of 2f
-//        entries.add(new BarEntry(5f, 70f));
-//        entries.add(new BarEntry(6f, 60f));
-            //
-            //
+        entries = fillEntries(keys, graphHelper);
 
         BarDataSet set = new BarDataSet(entries, "RatSightings");
         BarData data = new BarData(set);
@@ -92,5 +73,15 @@ public class GraphActivity extends AppCompatActivity {
         });
     }
 
-
+    //Samuel Bretz Test Method
+    static List<BarEntry> fillEntries(Set<String> keys, Map<String, Integer> graphHelper) {
+        List<BarEntry> entries = new ArrayList<>();
+        float count = 0;
+        for (String key : keys) {
+            BarEntry instance = new BarEntry(count, (float) graphHelper.get(key));
+            entries.add(instance);
+            count++;
+        }
+        return entries;
+    }
 }

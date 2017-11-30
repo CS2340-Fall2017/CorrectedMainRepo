@@ -66,13 +66,8 @@ class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-//    public Cursor getReport(int id) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor res = null;
-//        res = db.rawQuery( "SELECT * FROM " + REPORT_TABLE_NAME + " WHERE " +
-//                REPORT_COLUMN_ID + "=?", new String[] { Integer.toString(id) } );
-//        return res;
-//    }
+
+
     public Cursor getReport(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res;
@@ -82,6 +77,7 @@ class DBHelper extends SQLiteOpenHelper {
         return res;
     }
 
+    //Sam Test Method
     public Cursor getAllReports() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res;

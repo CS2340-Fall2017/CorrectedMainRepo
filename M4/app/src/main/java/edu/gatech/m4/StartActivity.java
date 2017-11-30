@@ -77,11 +77,6 @@ public class StartActivity extends AppCompatActivity {
             ArrayList<String> uniqueKeys = new ArrayList<>(scoreList.keySet());
             data = uniqueKeys.toArray(new String[uniqueKeys.size()]);
 
-
-//            //adds initial csv data
-//
-//            addData();
-
         }
 
         //log out
@@ -103,16 +98,6 @@ public class StartActivity extends AppCompatActivity {
                                      });
 
         Cursor cursor = dbHelper.getAllReports();
-//        String [] columns = new String[] {
-//                DBHelper.REPORT_COLUMN_ID,
-//                DBHelper.REPORT_COLUMN_NAME
-//        };
-//        int [] widgets = new int[] {
-//                R.id.reportID,
-//                R.id.reportName
-//        };
-//        SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, R.layout.report_info1,
-//                cursor, columns, widgets, 0);
 
         ArrayList<String> names = new ArrayList<>();
         //cursor.moveToNext();
@@ -133,13 +118,6 @@ public class StartActivity extends AppCompatActivity {
                 //pass the hashmap to detailedRatDataActivity
                 intent.putExtra("String", uniqueID);
                 startActivity(intent);
-
-//                Cursor itemCursor = (Cursor) StartActivity.this.listView.getItemAtPosition(position);
-//                int personID = itemCursor.getInt(itemCursor.getColumnIndex(DBHelper.REPORT_COLUMN_ID));
-//                Intent intent = new Intent(getApplicationContext(), DetailedRatDataDisplayActivity.class);
-//                intent.putExtra("Int", personID);
-//                startActivity(intent);
-
             }
         });
 
@@ -166,21 +144,6 @@ public class StartActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(authListener);
-
-//        Cursor cursor = dbHelper.getAllReports();
-//        String [] columns = new String[] {
-//                DBHelper.REPORT_COLUMN_ID,
-//                DBHelper.REPORT_COLUMN_NAME
-//        };
-//        int [] widgets = new int[] {
-//                R.id.reportID,
-//                R.id.reportName
-//        };
-//        SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, R.layout.report_info1,
-//                cursor, columns, widgets, 0);
-
-//        listView.setAdapter(cursorAdapter);
-
         Cursor cursor = dbHelper.getAllReports();
         ArrayList<String> names = new ArrayList<>();
         //cursor.moveToNext();
@@ -192,7 +155,6 @@ public class StartActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(StartActivity.this,
                 android.R.layout.simple_list_item_1, arr);
         listView.setAdapter(adapter);
-
     }
 
     @Override
@@ -202,28 +164,4 @@ public class StartActivity extends AppCompatActivity {
             mAuth.removeAuthStateListener(authListener);
         }
     }
-
-// --Commented out by Inspection START (11/13/2017 3:48 PM):
-//    public void addData() {
-//        for(int i = 0; i < data.length; i++ ) {
-//                String[] arr = scoreList.get(data[i]);
-//                if (arr.length >=49) {
-//                    if(dbHelper.insertReport(arr[0],arr[1], arr[7], arr[50], arr[49], arr[8], arr[9], arr[16], arr[23])) {
-//                        Toast.makeText(getApplicationContext(), "Report Inserted", Toast.LENGTH_SHORT).show();
-//                    }
-//                    else{
-//                        Toast.makeText(getApplicationContext(), "Could not Insert report", Toast.LENGTH_SHORT).show();
-//                    }
-//                } else {
-//                    if(dbHelper.insertReport(arr[0],arr[1], arr[7], arr[8], arr[9], arr[16], arr[23], arr[30], arr[31])) {  //49 and 50
-//                        Toast.makeText(getApplicationContext(), "Report Inserted", Toast.LENGTH_SHORT).show();
-//                    }
-//                    else{
-//                        Toast.makeText(getApplicationContext(), "Could not Insert report", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//        }
-//    }
-// --Commented out by Inspection STOP (11/13/2017 3:48 PM)
-
 }

@@ -90,24 +90,7 @@ public class Registration extends AppCompatActivity {
 
 
 
-                //checks to see if a valid email address has been used to register
-//                if (name.getText().toString().isEmpty()) { //throws error if name not entered
-//                    error.setText("'Name' field cannot be empty");
-//                } else if (!email.getText().toString().contains("@")) { //throws error if an invalid email address type is entered
-//                    error.setText("Not a valid email address");
-//                } else if (user_data.containsKey(email.getText().toString())) { //make sure user not already in hashmap
-//                    //error.setText("You're already registered fool!");
-//                } else if (password.getText().toString().isEmpty()) { //makes sure password is entered
-//                    error.setText("'Password' field cannot be empty");
-//                } else {
-//                    //add user to hashmap
-////                    user_data.put(email.getText().toString(), password.getText().toString());
-////                    Intent intent = new Intent(Registration.this, StartActivity.class );
-////                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-////                    startActivity(intent);
-//
-//
-//                }
+
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -123,10 +106,10 @@ public class Registration extends AppCompatActivity {
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
     }
+
     public void onClick(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
-
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.radio_admin:
